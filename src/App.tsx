@@ -1,5 +1,6 @@
 
 import Banner from "./Components/Banner"
+import ExploreTech from "./Components/ExploreTech"
 import Nav from "./Components/Nav"
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <Nav />
       <Banner />
+      <ExploreTech />
     </>
   )
 }
