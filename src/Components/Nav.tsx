@@ -4,7 +4,7 @@ const Nav = () => {
         <nav className="container mx-auto flex justify-between items-center p-4">
             <img src={Logo} alt="" />
             <ul className="flex gap-5">
-                <li className="text-pink-500">Home</li>
+                <li className="text-pink-600">Home</li>
                 <li>Technologies</li>
                 <li>Projects</li>
                 <li>About</li>
