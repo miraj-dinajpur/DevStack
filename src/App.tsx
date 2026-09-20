@@ -5,6 +5,7 @@ import ExploreTech from "./Components/ExploreTech"
 import Nav from "./Components/Nav"
 import Technologies from "./Components/TechComp/Technologies";
 import Footer from "./Components/TechComp/Footer";
+import { Toaster } from 'react-hot-toast';
 
 const techFetch = async() => {
   const res = await fetch('/data.json');
@@ -17,6 +18,7 @@ function App() {
   // console.log(techPromise);
   return (
     <>
+    <Toaster position="top-right" reverseOrder={false} />
       <Nav />
       <Banner />
       <ExploreTech />

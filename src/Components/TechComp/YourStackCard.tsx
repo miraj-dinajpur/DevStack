@@ -1,18 +1,33 @@
-// import React from 'react';
-// import type { Technology } from './type';
+import React from "react";
+import type { Technology } from "./type";
+import { TbTrash } from "react-icons/tb";
 
-// interface YourStackCardProps{
-//     stackTechs: Technology[];
-//     setStackTechs: React.Dispatch<React.SetStateAction<Technology[]>>;
-// }
+interface YourStackCardProps {
+  addedTech: Technology;
+  stackTechs: Technology[];
+  setStackTechs: React.Dispatch<React.SetStateAction<Technology[]>>;
+}
 
-// const YourStackCard = ({stackTechs,setStackTechs}:YourStackCardProps) => {
-//     return (
-//         console.log(stackTechs);
-//         <div>
+const YourStackCard = ({ addedTech, stackTechs, setStackTechs }: YourStackCardProps) => {
+    const handleRemovedStack = (addedTech:Technology) => {
+        const restStacks = stackTechs.filter(
+      (stackTechs) => stackTechs.name != addedTech.name,
+    );
+
+    setStackTechs(restStacks);
+    }
+  return (
+    <div>
+        <div className="flex justify-between border-2 py-4 px-2 gap-2">
+            <h2>Added: {addedTech.name}</h2>
             
-//         </div>
-//     );
-// };
+            <span className="cursor-pointer" onClick={()=>handleRemovedStack(addedTech)}>
+                <TbTrash />
+            </span>
+        </div>
+        
+    </div>
+  );
+};
 
-// export default YourStackCard;
+export default YourStackCard;

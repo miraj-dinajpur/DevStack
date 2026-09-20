@@ -12,6 +12,7 @@ const Technologies = ({
 }) => {
   const technologies = use(techPromise);
   const [stackTechs, setStackTechs] = useState<Technology[]>([]);
+
   return (
     <div className="container mx-auto grid grid-cols-12 gap-5 p-4">
       <div className="col-span-9">
