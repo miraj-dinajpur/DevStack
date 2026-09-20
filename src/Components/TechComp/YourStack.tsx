@@ -1,6 +1,13 @@
 import React from "react";
+import type { Technology } from "./type";
 
-const YourStack = () => {
+interface YourStackProps{
+    stackTechs: Technology[];
+    setStackTechs: React.Dispatch<React.SetStateAction<Technology[]>>;
+}
+
+const YourStack = ({stackTechs,setStackTechs}:YourStackProps) => {
+  console.log(stackTechs);
   return (
     <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md flex flex-col justify-between text-lg">
       <h2 className="font-bold">Your Stack</h2>

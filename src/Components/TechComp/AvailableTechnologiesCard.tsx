@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState } from "react";
 import type { Technology } from "./type";
 
-const AvailableTechnologiesCard = ({ technology }: { technology: Technology }) => {
+interface AvailableTechnologiesProps {
+  technology: Technology;
+  stackTechs: Technology[];
+  setStackTechs: React.Dispatch<React.SetStateAction<Technology[]>>;
+}
+
+const AvailableTechnologiesCard = ({
+  technology,
+  stackTechs,
+  setStackTechs,
+}: AvailableTechnologiesProps) => {
+  const [isAdded, setIsAdded] = useState(false);
+  const handleAdded = (type: "Added") => {
+    setIsAdded(true);
+    setStackTechs([...stackTechs,technology]);
+  };
+
   return (
     <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md flex flex-col justify-between h-full">
       <div>
@@ -44,8 +60,12 @@ const AvailableTechnologiesCard = ({ technology }: { technology: Technology }) =
         </div>
 
         {/* Button */}
-        <button className="cursor-pointer w-full bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-xl font-medium text-sm py-2.5 transition-colors">
-          Add to Stack
+        <button
+          onClick={() => handleAdded("Added")}
+          className="cursor-pointer w-full bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-xl font-medium text-sm py-2.5 transition-colors"
+          disabled={isAdded}
+        >
+          {isAdded === false ? "Add to Stack" : "Added"}
         </button>
       </div>
     </div>
