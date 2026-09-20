@@ -19,7 +19,7 @@ const AvailableTechnologiesCard = ({
 }: AvailableTechnologiesProps) => {
     const checkBtn = isAdded.includes(technology.id)
   const handleAdded = () => {
-    toast.success("Successfully added to your stack")
+    toast.success(`${technology.name} Successfully added to your stack`)
     setIsAdded([...isAdded,technology.id])
     setStackTechs([...stackTechs,technology]);
   };
@@ -71,7 +71,7 @@ const AvailableTechnologiesCard = ({
           className="cursor-pointer w-full bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-xl font-medium text-sm py-2.5 transition-colors disabled:bg-white disabled:text-red-800"
           disabled={checkBtn}
         >
-          {checkBtn ? "Added" : "Add to Stack"}
+          {checkBtn ? "✓ Added to Stack" : "Add to Stack"}
         </button>
       </div>
     </div>

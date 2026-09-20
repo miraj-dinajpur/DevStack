@@ -18,7 +18,7 @@ function App() {
   // console.log(techPromise);
   return (
     <>
-    <Toaster position="top-right" reverseOrder={false} />
+    <Toaster position="bottom-right" reverseOrder={false} />
       <Nav />
       <Banner />
       <ExploreTech />

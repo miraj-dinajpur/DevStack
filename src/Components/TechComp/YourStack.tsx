@@ -1,6 +1,7 @@
 import React from "react";
 import type { Technology } from "./type";
 import YourStackCard from "./YourStackCard";
+import toast from "react-hot-toast";
 
 
 interface YourStackProps {
@@ -19,6 +20,7 @@ const YourStack = ({
   const handleRemoveAll = () => {
     setIsAdded([]);
     setStackTechs([]);
+    toast.error("Cleared Stack All Items");
   };
   return (
     <div>

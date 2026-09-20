@@ -1,6 +1,9 @@
 import React from "react";
 import type { Technology } from "./type";
-import { TbTrash } from "react-icons/tb";
+
+import toast from "react-hot-toast";
+
+import { IoCloseSharp } from "react-icons/io5";
 
 interface YourStackCardProps {
   isAdded: string[];
@@ -24,6 +27,7 @@ const YourStackCard = ({
     const activeButton = isAdded.filter((btnId) => btnId !== addedTech.id);
     setIsAdded(activeButton);
     setStackTechs(restStacks);
+    toast.error(`${addedTech.name} Removed From Your Stack`);
   };
   return (
     <div>
@@ -45,10 +49,11 @@ const YourStackCard = ({
         </div>
 
         <span
-          className="cursor-pointer"
+          className="cursor-pointer items-center text-red-700 text-3xl"
           onClick={() => handleRemovedStack(addedTech)}
         >
-          <TbTrash />
+            <IoCloseSharp />
+
         </span>
       </div>
       
