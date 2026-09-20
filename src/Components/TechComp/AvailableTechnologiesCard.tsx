@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import type { Technology } from "./type";
 import toast from "react-hot-toast";
 
@@ -6,17 +6,21 @@ interface AvailableTechnologiesProps {
   technology: Technology;
   stackTechs: Technology[];
   setStackTechs: React.Dispatch<React.SetStateAction<Technology[]>>;
+  isAdded: string[];
+      setIsAdded: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 const AvailableTechnologiesCard = ({
   technology,
   stackTechs,
   setStackTechs,
+  isAdded,
+  setIsAdded
 }: AvailableTechnologiesProps) => {
-  const [isAdded, setIsAdded] = useState(false);
+    const checkBtn = isAdded.includes(technology.id)
   const handleAdded = () => {
     toast.success("Successfully added to your stack")
-    setIsAdded(true);
+    setIsAdded([...isAdded,technology.id])
     setStackTechs([...stackTechs,technology]);
   };
 
@@ -65,9 +69,9 @@ const AvailableTechnologiesCard = ({
         <button
           onClick={() => handleAdded()}
           className="cursor-pointer w-full bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-xl font-medium text-sm py-2.5 transition-colors disabled:bg-white disabled:text-red-800"
-          disabled={isAdded}
+          disabled={checkBtn}
         >
-          {isAdded === true ? "Added" : "Add to Stack"}
+          {checkBtn ? "Added" : "Add to Stack"}
         </button>
       </div>
     </div>
