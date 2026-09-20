@@ -27,8 +27,22 @@ const YourStackCard = ({
   };
   return (
     <div>
-      <div className="flex justify-between border-2 py-4 px-2 gap-2">
-        <h2>Added: {addedTech.name}</h2>
+      <div className="flex justify-between border-1 border-slate-400 rounded-2xl py-4 px-2 gap-2">
+        <div className="flex items-center gap-3.5">
+          <img
+            src={addedTech.icon}
+            alt={addedTech.name}
+            className="w-9 h-9 object-contain"
+          />
+          <div>
+            <h4 className="font-bold text-slate-900 text-base leading-tight">
+              {addedTech.name}
+            </h4>
+            <p className="text-xs font-medium text-slate-400 mt-0.5">
+              {addedTech.category}
+            </p>
+          </div>
+        </div>
 
         <span
           className="cursor-pointer"
@@ -37,6 +51,7 @@ const YourStackCard = ({
           <TbTrash />
         </span>
       </div>
+      
     </div>
   );
 };
